@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Modal from "./Modal";
 
 function PostList() {
+    const [modalVisible, setmodalVisible] = useState(true);
     const [enteredBody, setEnteredBody] = useState('');
     const [enteredAuthor, setEnteredAuther] = useState('');
 
@@ -14,20 +15,24 @@ function PostList() {
     function changeauthorHandler(event) {
         setEnteredAuther(event.target.value);
     }
+    function hideModalHandler() {
+        setmodalVisible(false);
+    }
     return (
-        <>
-            <Modal>
+        <>{modalVisible ?
+            <Modal onClose={hideModalHandler}>
                 <NewPost
                     onChangeBody={changeBodyHandler}
-                    onChangeAuthor={changeauthorHandler} 
-                    />
-            </Modal>
-                <ul className={classes.posts}>
-                    <Post author={enteredAuthor} body={enteredBody} />
-                    <Post author="Chris" body="This is my post" />
-                    <Post author="Canon" body="This is my post" />
-                    <Post author="Joswin" body="This is my post" />
-                </ul>
+                    onChangeAuthor={changeauthorHandler}
+                />
+            </Modal> : false
+        }
+            <ul className={classes.posts}>
+                <Post author={enteredAuthor} body={enteredBody} />
+                <Post author="Chris" body="This is my post" />
+                <Post author="Canon" body="This is my post" />
+                <Post author="Joswin" body="This is my post" />
+            </ul>
         </>
     )
 }
