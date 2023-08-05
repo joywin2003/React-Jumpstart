@@ -1,7 +1,10 @@
-function Post(){
+
+
+function Post(props){
     return(
         <div>
-            <h1>My name is Joywin</h1>
+            <h1>My name is {props.author}</h1>
+            <p>{props.body}</p>
         </div>
     )
 }
