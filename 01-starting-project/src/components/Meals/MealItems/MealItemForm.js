@@ -1,6 +1,11 @@
+import classes from "./MealItemForm.module.css";
+
 const MealItemForm = () =>{
     return(
-        <div></div>
+        <form className={classes.form}>
+            <input />
+            <button>+ Add</button>
+        </form>
     )
 }
 
