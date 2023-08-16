@@ -4,10 +4,16 @@ import Cart from "./components/Cart/Cart";
 import { useState } from "react";
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
+  const showCartHandler = () => {
+    setCartIsShown(true);
+  }
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  }
   return (
     <>
-    <Cart/>
-      <Header onClick = {setCartIsShown}/>
+   {cartIsShown && <Cart onHideCartHandler={hideCartHandler}/>}
+      <Header showCartHandler={showCartHandler} hideCartHandler = {hideCartHandler}/>
       <main>
         <Meals />
       </main>
