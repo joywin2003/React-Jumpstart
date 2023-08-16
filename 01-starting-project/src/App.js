@@ -1,10 +1,13 @@
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meal";
-
+import Cart from "./components/Cart/Cart";
+import { useState } from "react";
 function App() {
+  const [cartIsShown, setCartIsShown] = useState(false);
   return (
     <>
-      <Header />
+    <Cart/>
+      <Header onClick = {setCartIsShown}/>
       <main>
         <Meals />
       </main>
