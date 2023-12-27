@@ -1,23 +1,21 @@
 import React, { useState,useEffect } from "react";
 import styles from "./AddressForm.module.css";
 
+
+const adname = {
+  address1: "",
+  address2: "",
+  address3: "",
+  address4: "",
+  address5: "",
+};
+
 const AddressForm = ({ count, onSubmit }) => {
 
-  const adname = {
-    address1: "wwwe",
-    address2: "eeddss",
-    address3: "wwsddc",
-    address4: "wwddfer",
-    address5: "eedfcred",
-  };
 
   const [addresses, setAddresses] = useState(Object.values(adname).slice(0, count));
 
   useEffect(() => {
-    for (let i = 0; i < count; i++) {
-      adname[`address${i+1}`] = addresses[i];
-    }
-
     setAddresses(Object.values(adname).slice(0, count));
   }, [count]);
 
@@ -26,6 +24,7 @@ const AddressForm = ({ count, onSubmit }) => {
     setAddresses((prevAddresses) => {
       const updatedAddresses = [...prevAddresses];
       updatedAddresses[index] = value;
+      adname[`address${index+1}`] = value;
       console.log(updatedAddresses);
       return updatedAddresses;
     });
