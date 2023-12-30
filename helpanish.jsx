@@ -24,7 +24,7 @@ const AddressForm = ({ count, onSubmit }) => {
     setAddresses((prevAddresses) => {
       const updatedAddresses = [...prevAddresses];
       updatedAddresses[index] = value;
-      adname[`address${index+1}`] = value;
+      adname[`address${index+1}`] = value; //I used this jugad to save the value in an object since when i press add address from select property component it rerenders it
       console.log(updatedAddresses);
       return updatedAddresses;
     });
